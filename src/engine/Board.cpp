@@ -17,6 +17,10 @@ int Board::getSize(){
     return size;
 }
 
+Piece* Board::getPieceAt(int x, int y){
+    return grid[x][y];
+}
+
 bool Board::placable(Piece* piece, int x, int y){
     if(x < 0 || y < 0 || x > size-1 || y > size-1) return false;
     if(grid[x][y] != NULL) return false;

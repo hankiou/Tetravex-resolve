@@ -3,7 +3,7 @@
 #include <vector>
 
 void Solver::sequentialBacktracking(Game &game){
-    
+    recursiveBruteforce(game, 0, 0);
 }
 
 void Solver::recursiveBruteforce(Game &game, int x, int y){
@@ -15,10 +15,10 @@ void Solver::recursiveBruteforce(Game &game, int x, int y){
         if(!p->isPlaced()){
             if(game.move(p, x, y)){
                 int nextx = x;
-                int nexty = y;
-                if(x == game.getSize()-1){
-                    nextx = 0;
-                    nexty ++;
+                int nexty = y+1;
+                if(y == game.getSize()-1){
+                    nextx ++;
+                    nexty = 0;
                 }
                 recursiveBruteforce(game, nextx, nexty);
                 game.removePiece(x, y);

@@ -47,8 +47,12 @@ bool Board::placePiece(Piece* piece, int x, int y){
         return true;
     }
 
-    cout << "Move impossible"<<endl;
+    //cout << "Move impossible"<<endl;
     return false;
+}
+
+void Board::removePiece(int x, int y){
+    grid[x][y] = NULL;
 }
 
 void Board::display(){
@@ -69,8 +73,8 @@ void Board::display(vector<Piece*> v){
         }
         lines[0] += "|---";
         lines[1] += "| "+values[1]+" ";
-        lines[2] += "|"+values[0]+" "+values[3];
-        lines[3] += "| "+values[2]+" ";
+        lines[2] += "|"+values[0]+" "+values[2];
+        lines[3] += "| "+values[3]+" ";
     }
     for(string s : lines){
         cout << s+"|" <<endl;

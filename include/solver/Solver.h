@@ -4,5 +4,5 @@ class Solver{
 public:
     Solver();
     static void sequentialBacktracking(Game &game);
-    void recursiveBruteforce(Game &game, int x, int y);
+    static void recursiveBruteforce(Game &game, int x, int y);
 };

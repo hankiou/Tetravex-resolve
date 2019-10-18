@@ -1,5 +1,6 @@
 #include "../../include/engine/Game.h"
 #include <stddef.h>
+#include <iostream>
 
 Game::Game(int _size){
     size = _size;
@@ -13,7 +14,7 @@ void Game::addPiece(Piece *p){
 void Game::removePiece(int x, int y){
     Piece *piece = board->getPieceAt(x, y);
     if(piece != NULL){
-        board->placePiece(NULL, x, y);
+        board->removePiece(x, y);
         piece->setPlaced(false);
     }
 }
@@ -27,6 +28,7 @@ void Game::displayStock(){
 }
 
 bool Game::move(Piece *p, int x, int y){
+    //cerr<<x<<" "<<y<<endl;
     return board->placePiece(p, x, y);
 }
 

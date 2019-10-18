@@ -40,10 +40,15 @@ bool Board::placable(Piece* piece, int x, int y){
     return true;
 }
 
-void Board::placePiece(Piece* piece, int x, int y){
+bool Board::placePiece(Piece* piece, int x, int y){
     if(placable(piece, x, y)){
         grid[x][y] = piece;
-    }else cout << "Move impossible"<<endl;
+        piece->setPlaced(true);
+        return true;
+    }
+
+    cout << "Move impossible"<<endl;
+    return false;
 }
 
 void Board::display(){

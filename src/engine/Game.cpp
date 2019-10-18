@@ -14,7 +14,7 @@ void Game::removePiece(int x, int y){
     Piece *piece = board->getPieceAt(x, y);
     if(piece != NULL){
         board->placePiece(NULL, x, y);
-        stock.push_back(piece);
+        piece->setPlaced(false);
     }
 }
 
@@ -26,7 +26,13 @@ void Game::displayStock(){
     Board::display(stock);
 }
 
-void Game::move(int piece_id, int x, int y){
-    board->placePiece(stock[piece_id], x, y);
-    stock.erase(stock.begin() + piece_id);
+bool Game::move(Piece *p, int x, int y){
+    return board->placePiece(p, x, y);
+}
+
+bool Game::stockIsEmpty(){
+    for(Piece *p : stock){
+        if(!p->isPlaced()) return false;
+    }
+    return true;
 }

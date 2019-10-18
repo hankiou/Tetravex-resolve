@@ -12,7 +12,7 @@ public:
     int getSize();
     Piece* getPieceAt(int x, int y);
     bool placable(Piece* piece, int x, int y);
-    void placePiece(Piece* piece, int x, int y);
+    bool placePiece(Piece* piece, int x, int y);
     void display();
     static void display(vector<Piece*> v);
 };

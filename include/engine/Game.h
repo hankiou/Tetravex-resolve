@@ -10,9 +10,11 @@ private:
 public:
     Game(int _size);
     vector<Piece*> getStock(){ return stock; }
+    int getSize(){return size;}
     void addPiece(Piece* p);
     void removePiece(int x, int y);
     void displayBoard();
-    void move(int piece_id, int x, int y);
+    bool move(Piece *p, int x, int y);
     void displayStock();
+    bool stockIsEmpty();
 };

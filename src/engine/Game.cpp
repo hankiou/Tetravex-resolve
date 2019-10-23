@@ -28,7 +28,6 @@ void Game::displayStock(){
 }
 
 bool Game::move(Piece *p, int x, int y){
-    //cerr<<x<<" "<<y<<endl;
     return board->placePiece(p, x, y);
 }
 
@@ -37,4 +36,12 @@ bool Game::stockIsEmpty(){
         if(!p->isPlaced()) return false;
     }
     return true;
+}
+
+Game Game::copy(){
+    Game gamecp(size);
+    for(Piece* p : stock){
+        gamecp.addPiece(new Piece(p->horizontal.get(-1), p->vertical.get(1), p->horizontal.get(1), p->vertical.get(-1)));
+    }
+    return gamecp;
 }

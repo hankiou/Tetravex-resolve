@@ -27,7 +27,7 @@ bool Board::placable(Piece* piece, int x, int y){
     for(int i : {-1, 1}){
         if(x + i >= 0 && x + i <= size-1){
             if(grid[x+i][y] != NULL){
-                if(grid[x+i][y]->vertical.get(-i) != piece->vertical.get(i)) return false;
+                if(grid[x+i][y]->vertical.get(i) != piece->vertical.get(-i)) return false;
             }
         }
         if(y + i >= 0 && y + i <= size-1){

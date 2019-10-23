@@ -1,7 +1,7 @@
 TARGET_EXEC ?= Tetravex
 BUILD_DIR ?= ./build
 SRC_DIRS ?= ./src
-CC = g++ -std=c++11
+CC = g++ -std=c++11 -pthread
 
 SRCS := $(shell find $(SRC_DIRS) -name *.cpp)
 OBJS := $(SRCS:%=$(BUILD_DIR)/%.o)

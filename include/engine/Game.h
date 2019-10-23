@@ -8,6 +8,7 @@ private:
     vector<Piece*> stock;
 
 public:
+    Game();
     Game(int _size);
     vector<Piece*> getStock(){ return stock; }
     int getSize(){return size;}
@@ -17,4 +18,5 @@ public:
     bool move(Piece *p, int x, int y);
     void displayStock();
     bool stockIsEmpty();
+    Game copy();
 };
